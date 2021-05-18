@@ -14,9 +14,13 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(value = HttpMessageNotReadableException.class)
     public ResponseEntity<ErrorMessageDto> errorNoReadableException(){
-        errorMsg = ErrorMessageDto.builder().status(String.valueOf(HttpStatus.BAD_REQUEST.value()))
-                                            .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                                            .message(ErrorMessageDto.GENERAL_MSG_ERROR).build();
+        errorMsg = ErrorMessageDto.of(String.valueOf(HttpStatus.BAD_REQUEST.value()),HttpStatus.BAD_REQUEST.getReasonPhrase(),ErrorMessageDto.GENERAL_MSG_ERROR);
         return new ResponseEntity<>(errorMsg, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public ResponseEntity<ErrorMessageDto> errorIllegalArgumentException(IllegalArgumentException ex){
+        errorMsg = ErrorMessageDto.of(String.valueOf(HttpStatus.BAD_REQUEST.value()),HttpStatus.BAD_REQUEST.getReasonPhrase(),ex.getMessage());
+        return new ResponseEntity<>(errorMsg, HttpStatus.BAD_REQUEST);
+    }
+
 }

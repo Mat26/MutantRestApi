@@ -3,6 +3,7 @@ package com.mutant.controller;
 import com.mutant.controller.dto.DnaDto;
 import com.mutant.model.Dna;
 import com.mutant.service.IDnaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +21,10 @@ public class DnaController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> isMutant(@RequestBody DnaDto dnaSequence) throws Exception {
+    public ResponseEntity<String> isMutant(@RequestBody DnaDto dnaSequence) {
         Dna dna = IdnaService.validateDnaSequence(dnaSequence.getDna());
         dna = IdnaService.persistenceDnaModel(dna);
-        return IdnaService.isMutant(dna.isMutant());
+        return dna.isMutant() ? ResponseEntity.ok("WELCOME TO THE XMEN :)!!"): ResponseEntity.status(HttpStatus.FORBIDDEN).body("YOU ARE NOT BELONG HERE :(");
     }
 
 }

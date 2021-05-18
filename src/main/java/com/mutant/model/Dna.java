@@ -7,12 +7,11 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
+@NoArgsConstructor
 @Table(name = "DNA")
 public class Dna {
+
     public static final String ID = "ID";
     public static final String IS_MUTANT = "IS_MUTANT";
     public static final String SEQUENCE = "SEQUENCE";
@@ -28,6 +27,15 @@ public class Dna {
     @CollectionTable(name = SEQUENCE, joinColumns = @JoinColumn(name = ID))
     @Column(name = SEQUENCE_DNA)
     private List<String> dna;
+
+    private Dna(List<String> adn, boolean mutant) {
+        this.dna = adn;
+        this.mutant = mutant;
+    }
+
+    public static Dna of(List<String> dna, boolean mutant) {
+        return new Dna(dna,mutant);
+    }
 
 
 }
