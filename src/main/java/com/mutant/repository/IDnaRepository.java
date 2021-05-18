@@ -1,11 +1,13 @@
-package com.mutant.repositories;
+package com.mutant.repository;
 
-import com.mutant.models.DnaModel;
+import com.mutant.model.Dna;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IDnaRepository extends JpaRepository<DnaModel,Long> {
+public interface IDnaRepository extends JpaRepository<Dna,Long> {
+
         double countByMutantTrue();
+
         double countByMutantFalse();
 }
