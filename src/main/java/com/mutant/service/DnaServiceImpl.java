@@ -37,7 +37,7 @@ public class DnaServiceImpl implements IDnaService{
     @Override
     public Dna validateDnaSequence(List<String> dnaSequence) {
         if(!validateIsEmpty(dnaSequence)){
-            throw new IllegalArgumentException("THE REQUEST IS EMPTY OR ARRAY LESS THAN 4.");
+            throw new IllegalArgumentException("THE REQUEST IS EMPTY OR LIST LESS THAN 4.");
         }
         if(!validateContainsLetter(dnaSequence)){
             throw new IllegalArgumentException("THE REQUEST IS NOT N x N OR NOT CONTAIN THE LETTERS REQUIRED.");
