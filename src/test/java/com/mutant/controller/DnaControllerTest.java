@@ -38,7 +38,7 @@ public class DnaControllerTest {
 
     @Test
     public void isMutantTest() {
-        msgExpected = "WELCOME TO THE XMEN :)!!";
+        msgExpected = "WELCOME TO THE XMEN";
         when(iDnaService.validateDnaSequence(sequence)).thenReturn(dnaTest);
         Dna dnaMutant = iDnaService.validateDnaSequence(sequence);
         dnaTest.setId(12312L);
@@ -54,7 +54,7 @@ public class DnaControllerTest {
 
     @Test
     public void isNoMutantTest() {
-        msgExpected = "YOU ARE NOT BELONG HERE :(";
+        msgExpected = "YOU ARE NOT BELONG HERE";
         when(iDnaService.validateDnaSequence(badSequence)).thenReturn(dnaHumTest);
         Dna dnaHuman = iDnaService.validateDnaSequence(badSequence);
         dnaHumTest.setId(12312L);

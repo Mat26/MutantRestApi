@@ -24,7 +24,7 @@ public class DnaController {
     public ResponseEntity<String> isMutant(@RequestBody DnaDto dnaSequence) {
         Dna dna = IdnaService.validateDnaSequence(dnaSequence.getDna());
         dna = IdnaService.persistenceDnaModel(dna);
-        return dna.isMutant() ? ResponseEntity.ok("WELCOME TO THE XMEN :)!!"): ResponseEntity.status(HttpStatus.FORBIDDEN).body("YOU ARE NOT BELONG HERE :(");
+        return dna.isMutant() ? ResponseEntity.ok("WELCOME TO THE XMEN"): ResponseEntity.status(HttpStatus.FORBIDDEN).body("YOU ARE NOT BELONG HERE");
     }
 
 }

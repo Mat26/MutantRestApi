@@ -55,7 +55,7 @@ public class DnaServiceImplTest {
     @Test
     public void ValidateIsEmptyTest() {
         exceptionRule.expect(IllegalArgumentException.class);
-        exceptionRule.expectMessage("THE REQUEST IS EMPTY OR ARRAY LESS THAN 4.");
+        exceptionRule.expectMessage("THE REQUEST IS EMPTY OR LIST LESS THAN 4.");
         List<String> sequenceDnaFalse = new ArrayList<String>(List.of("ATGCGA","CCGTGC","TTATCT"));
         dnaServiceImpl.validateDnaSequence(sequenceDnaFalse);
     }
