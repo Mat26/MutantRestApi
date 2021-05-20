@@ -1,7 +1,6 @@
 # MutantRestApi
 
-Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Men. Para esto se desarrollo MutantRestApi que detecta si un humano es mutante basándose en su secuencia de ADN.
-
+Magneto wants to recruit as many mutants as possible so he can fight the X-Men. To do this, MutantRestApi was developed that detects whether a human is a mutant based on their DNA sequence.
 
 ## Get if It is Mutant or not
 
@@ -10,29 +9,29 @@ Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra l
 `POST /mutant/`
 
 
-    curl -X POST 'http://localhost:8080/mutant' \ 
-    -H 'Content-Type: application/json' \ 
-    -d '{ "dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"] } 
+    curl -X POST 'http://mutantapirest-env.eba-3eknhptq.us-east-1.elasticbeanstalk.com/mutant' \
+    -H 'Content-Type: application/json' \
+    -d '{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}'
 
 ### Response(Is Mutant)
 
-    HTTP/1.1 200 OK
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 2
+    HTTP/1.1 200 
+    Server: nginx/1.18.0
+    Date: Thu, 20 May 2021 05:07:40 GMT
+    Content-Type: text/plain;charset=UTF-8
+    Content-Length: 19
+    Connection: keep-alive
 
     WELCOME TO THE XMEN
 
 ### Response(Is Human)
 
-    HTTP/1.1 403 Forbidden
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 403 Forbidden
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 2
+    HTTP/1.1 403 
+    Server: nginx/1.18.0
+    Date: Thu, 20 May 2021 05:08:36 GMT
+    Content-Type: text/plain;charset=UTF-8
+    Content-Length: 21
+    Connection: keep-alive
     
     YOU DON'T BELONG HERE
 
@@ -46,13 +45,12 @@ Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra l
 
 ### Response
 
-    HTTP/1.1 200 OK
-    Date: Wed, 19 May 2021 04:53:22 GMT
-    Status: 200 OK
-    Connection: keep-alive
+    HTTP/1.1 200 
+    Server: nginx/1.18.0
+    Date: Thu, 20 May 2021 05:06:17 GMT
     Content-Type: application/json
-    Location: /thing/1
-    Content-Length: 36
+    Transfer-Encoding: chunked
+    Connection: keep-alive
 
     {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4} 
 
