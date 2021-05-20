@@ -1,8 +1,8 @@
 # MutantRestApi
 
-////Code Coverage: 96%/////⭐ ⭐ ⭐ ⭐ ⭐
-
 Magneto wants to recruit as many mutants as possible so he can fight the X-Men. To do this, MutantRestApi was developed that detects whether a human is a mutant based on their DNA sequence.
+
+////Code Coverage: 96%/////
 
 ## Get if It is Mutant or not
 
